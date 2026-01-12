@@ -6,17 +6,13 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: 6,
-        scrollDirection: Axis.vertical,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-            child: BestSellerListViewItem(),
-          );
-        },
-      ),
+    return SliverList(
+      delegate: SliverChildBuilderDelegate((context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+          child: BestSellerListViewItem(),
+        );
+      }, childCount: 6),
     );
   }
 }

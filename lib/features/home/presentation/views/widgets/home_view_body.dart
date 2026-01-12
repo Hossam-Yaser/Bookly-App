@@ -10,16 +10,25 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          FuturedBookListView(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 25),
-            child: Text(
-              "Best Seller",
-              style: AppTextStyles.font18WhiteSemiBold,
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(),
+                FuturedBookListView(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 25,
+                  ),
+                  child: Text(
+                    "Best Seller",
+                    style: AppTextStyles.font18WhiteSemiBold,
+                  ),
+                ),
+              ],
             ),
           ),
           BestSellerListView(),
