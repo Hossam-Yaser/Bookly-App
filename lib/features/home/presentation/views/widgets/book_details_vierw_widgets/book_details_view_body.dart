@@ -1,5 +1,6 @@
 import 'package:bookly_app/core/utils/app_text_styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_vierw_widgets/custom_book_details_app_bar.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_details_vierw_widgets/price_and_preview_button.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/rating_section.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,9 @@ class BookDetailsViewBody extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            RatingSection(),
+            RatingSection(mainAxisAlignment: MainAxisAlignment.center),
+            const SizedBox(height: 40),
+            PriceAndPreviewButton(),
           ],
         ),
       ),
