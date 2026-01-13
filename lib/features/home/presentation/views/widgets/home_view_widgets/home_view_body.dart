@@ -23,7 +23,7 @@ class HomeViewBody extends StatelessWidget {
                     horizontal: 24,
                     vertical: 25,
                   ),
-                  child: Text(
+                  child: const Text(
                     "Best Seller",
                     style: AppTextStyles.font18WhiteSemiBold,
                   ),
