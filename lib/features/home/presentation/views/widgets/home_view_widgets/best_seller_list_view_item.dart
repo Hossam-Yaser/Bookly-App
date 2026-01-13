@@ -7,26 +7,29 @@ class BestSellerListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 150 / 224,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage(AssetsConstants.bookTest),
+    return GestureDetector(
+      onTap: () {},
+      child: SizedBox(
+        height: 150,
+        child: Row(
+          children: [
+            AspectRatio(
+              aspectRatio: 150 / 224,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  image: const DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage(AssetsConstants.bookTest),
+                  ),
                 ),
               ),
             ),
-          ),
-          SizedBox(width: 30),
+            SizedBox(width: 30),
 
-          BookInfoWidget(),
-        ],
+            BookInfoWidget(),
+          ],
+        ),
       ),
     );
   }
