@@ -6,28 +6,31 @@ class PriceAndPreviewButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomButton(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16),
-              bottomLeft: Radius.circular(16),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Row(
+        children: const [
+          Expanded(
+            child: CustomButton(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16),
+                bottomLeft: Radius.circular(16),
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: CustomButton(
-            backgroundColor: Color(0xffEF8262),
-            buttonText: "Free preview",
-            textColor: Colors.white,
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(16),
-              bottomRight: Radius.circular(16),
+          Expanded(
+            child: CustomButton(
+              backgroundColor: Color(0xffEF8262),
+              buttonText: "Free preview",
+              textColor: Colors.white,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(16),
+                bottomRight: Radius.circular(16),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
