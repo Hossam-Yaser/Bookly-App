@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/custom_book_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 
 class FuturedBookListView extends StatelessWidget {

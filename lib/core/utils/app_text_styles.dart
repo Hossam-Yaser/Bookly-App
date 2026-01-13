@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTextStyles {
+  static TextStyle font30WhiteRegular = TextStyle(
+    fontSize: 30,
+    fontWeight: FontWeight.w600,
+    fontFamily: GoogleFonts.inriaSerif().fontFamily,
+    color: Colors.white,
+  );
   static TextStyle font20WhiteRegular = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -17,6 +23,11 @@ abstract class AppTextStyles {
     fontSize: 18,
     fontWeight: FontWeight.w900,
     color: Colors.white,
+  );
+  static const TextStyle font18GreyRegular = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: Colors.grey,
   );
   static const TextStyle font16WhiteBold = TextStyle(
     fontSize: 16,
