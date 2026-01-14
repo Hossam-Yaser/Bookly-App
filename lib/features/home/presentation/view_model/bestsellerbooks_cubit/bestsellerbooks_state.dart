@@ -1,23 +1,23 @@
 part of 'bestsellerbooks_cubit.dart';
 
-abstract class BestsellerbookscubitState extends Equatable {
-  const BestsellerbookscubitState();
+abstract class BestsellerbooksState extends Equatable {
+  const BestsellerbooksState();
 
   @override
   List<Object> get props => [];
 }
 
-class BestsellerbookscubitInitial extends BestsellerbookscubitState {}
+class BestsellerbooksInitial extends BestsellerbooksState {}
 
-class BestsellerbookscubitLoading extends BestsellerbookscubitState {}
+class BestsellerbooksLoading extends BestsellerbooksState {}
 
-class BestsellerbookscubitSuccess extends BestsellerbookscubitState {
+class BestsellerbooksSuccess extends BestsellerbooksState {
   final List<BookResponseModel> bestSellerBooksList;
 
-  const BestsellerbookscubitSuccess(this.bestSellerBooksList);
+  const BestsellerbooksSuccess(this.bestSellerBooksList);
 }
 
-class BestsellerbookscubitFailure extends BestsellerbookscubitState {
+class BestsellerbooksFailure extends BestsellerbooksState {
   final String errorMessage;
-  const BestsellerbookscubitFailure(this.errorMessage);
+  const BestsellerbooksFailure(this.errorMessage);
 }

@@ -5,21 +5,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'bestsellerbooks_state.dart';
 
-class BestsellerbookscubitCubit extends Cubit<BestsellerbookscubitState> {
+class BestsellerbooksCubit extends Cubit<BestsellerbooksState> {
   final HomeRepo _homeRepo;
-  BestsellerbookscubitCubit(this._homeRepo)
-    : super(BestsellerbookscubitInitial());
+  BestsellerbooksCubit(this._homeRepo) : super(BestsellerbooksInitial());
 
   Future<void> fetchBestSellerBooks() async {
-    emit(BestsellerbookscubitLoading());
+    emit(BestsellerbooksLoading());
 
     var result = await _homeRepo.fetchBestSellerBooks();
     result.fold(
       (booksList) {
-        emit(BestsellerbookscubitSuccess(booksList));
+        emit(BestsellerbooksSuccess(booksList));
       },
       (failure) {
-        emit(BestsellerbookscubitFailure(failure.errorMessage));
+        emit(BestsellerbooksFailure(failure.errorMessage));
       },
     );
   }
