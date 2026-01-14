@@ -1,9 +1,11 @@
 import 'package:bookly_app/core/helpers/constants/colors_constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/dependancy_injection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  setupDependancyInjec();
   runApp(const BooklyApp());
 }
 
