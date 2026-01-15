@@ -1,8 +1,8 @@
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
-import 'package:bookly_app/core/widgets/custom_loading_widget.dart';
 import 'package:bookly_app/features/home/presentation/view_model/futured_books_cubit/futuredbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item_skeltonizer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -36,7 +36,16 @@ class FuturedBookListView extends StatelessWidget {
             ),
           );
         }
-        return CustomLoadingWidget();
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.3,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 4,
+            itemBuilder: (context, index) {
+              return CustomBookItemShimmer();
+            },
+          ),
+        );
       },
     );
   }
