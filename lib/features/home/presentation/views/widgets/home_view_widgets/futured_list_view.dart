@@ -1,9 +1,11 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_widget.dart';
 import 'package:bookly_app/features/home/presentation/view_model/futured_books_cubit/futuredbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FuturedBookListView extends StatelessWidget {
   const FuturedBookListView({super.key});
@@ -22,11 +24,13 @@ class FuturedBookListView extends StatelessWidget {
               itemCount: state.futureBooksList.length,
               itemBuilder: (context, index) {
                 return CustomBookItem(
-                  imageURL: state
-                      .futureBooksList[index]
-                      .volumeInfo!
-                      .imageLinks!
-                      .thumbnail!,
+                  bookResponseModel: state.futureBooksList[index],
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouter.kBookDetailsView,
+                      extra: state.futureBooksList[index],
+                    );
+                  },
                 );
               },
             ),

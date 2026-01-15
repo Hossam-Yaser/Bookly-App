@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/dependancy_injection.dart';
+import 'package:bookly_app/features/home/data/models/book_response_model/book_response_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_implementation.dart';
 import 'package:bookly_app/features/home/presentation/view_model/bestsellerbooks_cubit/bestsellerbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/view_model/futured_books_cubit/futuredbooks_cubit.dart';
@@ -45,9 +46,12 @@ abstract class AppRouter {
       GoRoute(
         path: kBookDetailsView,
         builder: (BuildContext context, GoRouterState state) {
+          final book = state.extra as BookResponseModel;
           return BlocProvider(
-            create: (context) => FuturedbooksCubit(getIt.get<HomeRepoImpl>()),
-            child: const BookDetailsView(),
+            create: (context) =>
+                FuturedbooksCubit(getIt.get<HomeRepoImpl>())
+                  ..fetchFuturedBooks(),
+            child: BookDetailsView(bookResponseModel: book),
           );
         },
       ),
