@@ -3,6 +3,7 @@ import 'package:bookly_app/features/home/data/models/book_response_model/book_re
 import 'package:bookly_app/features/home/data/repos/home_repo_implementation.dart';
 import 'package:bookly_app/features/home/presentation/view_model/bestsellerbooks_cubit/bestsellerbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/view_model/futured_books_cubit/futuredbooks_cubit.dart';
+import 'package:bookly_app/features/home/presentation/view_model/similarbooks/similarbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/features/search/presentation/views/search_view.dart';
@@ -48,9 +49,10 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           final book = state.extra as BookResponseModel;
           return BlocProvider(
-            create: (context) =>
-                FuturedbooksCubit(getIt.get<HomeRepoImpl>())
-                  ..fetchFuturedBooks(),
+            create: (context) => SimilarbooksCubit(
+              getIt.get<HomeRepoImpl>(),
+              category: book.volumeInfo!.categories!.first,
+            )..fetchSimilarBooks(),
             child: BookDetailsView(bookResponseModel: book),
           );
         },

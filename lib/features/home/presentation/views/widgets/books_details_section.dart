@@ -38,7 +38,7 @@ class BooksDetailsSection extends StatelessWidget {
           numberOfRating: 2000,
         ),
         const SizedBox(height: 30),
-        PriceAndPreviewButton(),
+        PriceAndPreviewButton(bookResponseModel: bookResponseModel),
       ],
     );
   }

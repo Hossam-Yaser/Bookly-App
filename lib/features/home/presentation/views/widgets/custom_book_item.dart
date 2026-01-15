@@ -22,7 +22,9 @@ class CustomBookItem extends StatelessWidget {
             aspectRatio: 150 / 224,
             child: CachedNetworkImage(
               fit: BoxFit.fill,
-              imageUrl: bookResponseModel.volumeInfo!.imageLinks!.thumbnail!,
+              imageUrl:
+                  bookResponseModel.volumeInfo!.imageLinks?.thumbnail! ??
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s",
               errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),

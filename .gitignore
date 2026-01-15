@@ -9,7 +9,6 @@ build/
 test/
 
 # Ignore platform-specific foldersz
-/ios/
 /linux/
 /macos/
 /windows/
