@@ -52,11 +52,17 @@ class VolumeInfo extends Equatable {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
     title: json['title'] as String?,
-    subtitle: json['subtitle'] as String?,
+    subtitle: json['subtitle'] == null ? null : json['subtitle'] as String?,
     authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
-    publisher: json['publisher'] as String?,
-    publishedDate: json['publishedDate'] as String?,
-    description: json['description'] as String?,
+    publisher: json['publisher'] == null ? null : json['publisher'] as String?,
+    publishedDate: json['publishedDate'] == null
+        ? null
+        : json['publishedDate'] == null
+        ? null
+        : json['publishedDate'] as String?,
+    description: json['description'] == null
+        ? ''
+        : json['description'] as String?,
     industryIdentifiers: (json['industryIdentifiers'] as List<dynamic>?)
         ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -65,7 +71,9 @@ class VolumeInfo extends Equatable {
         : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
     pageCount: json['pageCount'] as int?,
     printType: json['printType'] as String?,
-    categories: (json['categories'] as List<dynamic>?)?.cast<String>(),
+    categories: json['categories'] == null
+        ? null
+        : (json['categories'] as List<dynamic>?)?.cast<String>(),
     maturityRating: json['maturityRating'] as String?,
     allowAnonLogging: json['allowAnonLogging'] as bool?,
     contentVersion: json['contentVersion'] as String?,

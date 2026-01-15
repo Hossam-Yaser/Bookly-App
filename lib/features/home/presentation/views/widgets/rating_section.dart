@@ -19,8 +19,8 @@ class RatingSection extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       children: [
         Icon(FontAwesomeIcons.solidStar, color: Color(0xffFFDD4F), size: 14),
-        Text('$rating', style: AppTextStyles.font16WhiteBold),
-        Text('($numberOfRating)', style: AppTextStyles.font14GreyRegular),
+        Text('  $rating', style: AppTextStyles.font16WhiteBold),
+        Text('  ($numberOfRating)', style: AppTextStyles.font14GreyRegular),
       ],
     );
   }

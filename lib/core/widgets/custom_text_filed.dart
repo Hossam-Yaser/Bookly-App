@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key});
+  const CustomTextField({super.key, this.onSubmitted});
+  final void Function(String)? onSubmitted;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: onSubmitted,
       decoration: InputDecoration(
         enabledBorder: buildOutlinedBorder(),
         focusedBorder: buildOutlinedBorder(),

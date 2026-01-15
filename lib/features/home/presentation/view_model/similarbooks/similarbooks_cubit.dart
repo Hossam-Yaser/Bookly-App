@@ -7,7 +7,7 @@ part 'similarbooks_state.dart';
 
 class SimilarbooksCubit extends Cubit<SimilarbooksState> {
   final HomeRepo _homeRepo;
-  final String category;
+  final String? category;
   SimilarbooksCubit(this._homeRepo, {required this.category})
     : super(SimilarbooksInitial());
 

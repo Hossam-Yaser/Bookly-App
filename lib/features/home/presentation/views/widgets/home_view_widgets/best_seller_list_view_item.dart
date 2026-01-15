@@ -22,22 +22,22 @@ class BestSellerListViewItem extends StatelessWidget {
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(16),
+              borderRadius: BorderRadius.circular(16),
               child: AspectRatio(
                 aspectRatio: 150 / 224,
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl:
-                      bookResponseModel.volumeInfo!.imageLinks!.thumbnail!,
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                      bookResponseModel.volumeInfo?.imageLinks?.thumbnail ??
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s",
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
             SizedBox(width: 30),
-
             BookInfoWidget(
-              bookTitle: bookResponseModel.volumeInfo!.title!,
-              bookAuthor: bookResponseModel.volumeInfo!.authors![0],
+              bookTitle: bookResponseModel.volumeInfo?.title ?? '',
+              bookAuthor: bookResponseModel.volumeInfo?.authors?.first ?? "",
               rating: 4.8,
               numberOfRating: 2221,
             ),

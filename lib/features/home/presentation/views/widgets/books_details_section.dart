@@ -12,6 +12,7 @@ class BooksDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
@@ -23,13 +24,15 @@ class BooksDetailsSection extends StatelessWidget {
         Text(
           bookResponseModel.volumeInfo!.title!,
           style: AppTextStyles.font30WhiteRegular,
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 6),
         Text(
-          bookResponseModel.volumeInfo!.authors!.first,
+          getAuthors(bookResponseModel: bookResponseModel),
           style: AppTextStyles.font18GreyRegular.copyWith(
             fontStyle: FontStyle.italic,
           ),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 20),
         RatingSection(
@@ -41,5 +44,22 @@ class BooksDetailsSection extends StatelessWidget {
         PriceAndPreviewButton(bookResponseModel: bookResponseModel),
       ],
     );
+  }
+
+  String getAuthors({required BookResponseModel bookResponseModel}) {
+    String authorsNames = '';
+    if (bookResponseModel.volumeInfo!.authors == null) {
+      return authorsNames;
+    } else {
+      if (bookResponseModel.volumeInfo!.authors!.length > 1) {
+        for (var author in bookResponseModel.volumeInfo!.authors!) {
+          authorsNames += "\n $author";
+        }
+        return authorsNames;
+      } else {
+        authorsNames = bookResponseModel.volumeInfo!.authors!.first;
+        return authorsNames;
+      }
+    }
   }
 }
