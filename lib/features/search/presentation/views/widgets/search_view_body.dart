@@ -1,6 +1,5 @@
 import 'package:bookly_app/core/utils/app_text_styles.dart';
 import 'package:bookly_app/core/widgets/custom_text_filed.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/best_seller_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -41,7 +40,8 @@ class SearchResultListView extends StatelessWidget {
                   horizontal: 24,
                   vertical: 10,
                 ),
-                child: BestSellerListViewItem(),
+                child: Container(),
+                //  BestSellerListViewItem(bookResponseModel: ,),
               );
             }, childCount: 6),
           ),

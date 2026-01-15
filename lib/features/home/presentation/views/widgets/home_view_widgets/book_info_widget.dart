@@ -3,7 +3,20 @@ import 'package:bookly_app/features/home/presentation/views/widgets/rating_secti
 import 'package:flutter/material.dart';
 
 class BookInfoWidget extends StatelessWidget {
-  const BookInfoWidget({super.key});
+  const BookInfoWidget({
+    super.key,
+    required this.bookTitle,
+    required this.bookAuthor,
+    required this.rating,
+    required this.numberOfRating,
+    this.bookPrice = '',
+  });
+
+  final String bookTitle;
+  final String bookAuthor;
+  final String bookPrice;
+  final double rating;
+  final int numberOfRating;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +25,13 @@ class BookInfoWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Book Title Harry Potter \n and the Goblet of Fire",
+            bookTitle,
             style: AppTextStyles.font20WhiteRegular,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           Text(
-            "Book Author J.K. Rowling",
+            bookAuthor,
             style: AppTextStyles.font14GreyRegular,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -26,9 +39,12 @@ class BookInfoWidget extends StatelessWidget {
 
           Row(
             children: [
-              Text('19.99 €', style: AppTextStyles.font18WhiteBold),
+              Text(
+                bookPrice.isEmpty ? "Free" : '$bookPrice €',
+                style: AppTextStyles.font18WhiteBold,
+              ),
               Spacer(),
-              RatingSection(),
+              RatingSection(rating: rating, numberOfRating: numberOfRating),
             ],
           ),
         ],

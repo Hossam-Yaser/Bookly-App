@@ -6,7 +6,12 @@ class RatingSection extends StatelessWidget {
   const RatingSection({
     super.key,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.rating,
+    required this.numberOfRating,
   });
+  final double rating;
+  final int numberOfRating;
+
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
@@ -14,8 +19,8 @@ class RatingSection extends StatelessWidget {
       mainAxisAlignment: mainAxisAlignment,
       children: [
         Icon(FontAwesomeIcons.solidStar, color: Color(0xffFFDD4F), size: 14),
-        Text('4.8', style: AppTextStyles.font16WhiteBold),
-        Text('(2390)', style: AppTextStyles.font14GreyRegular),
+        Text('$rating', style: AppTextStyles.font16WhiteBold),
+        Text('($numberOfRating)', style: AppTextStyles.font14GreyRegular),
       ],
     );
   }

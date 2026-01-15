@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
+import 'package:bookly_app/core/widgets/custom_loading_widget.dart';
 import 'package:bookly_app/features/home/presentation/view_model/futured_books_cubit/futuredbooks_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class FuturedBookListView extends StatelessWidget {
             ),
           );
         }
-        return Center(child: const CircularProgressIndicator());
+        return CustomLoadingWidget();
       },
     );
   }
